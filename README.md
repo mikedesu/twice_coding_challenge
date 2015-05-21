@@ -32,6 +32,14 @@ CC=gcc
 
 <hr/>
 
+# Usage
+
+```
+usage: ./main <input_dictionary_file> <input_word>
+```
+
+<hr/>
+
 # Sample output
 
 ```
