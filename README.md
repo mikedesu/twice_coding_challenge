@@ -16,6 +16,29 @@ I could have used a more "powerful" / higher-level language, but I like C, and I
 
 I ran into a number of issues in just reading in the word list (efficient file i/o is hard), so I decided to try implementing an AVL tree. This will be later used in another small project that I am working on, so it is win-win.
 
+There are two issues that I can think of that need to be watched out for:
+
+1. If your dictionary has words with more than 32 characters, you should change the define in avl_node.h:
+
+```
+#define MAX_STRING_LENGTH 32
+```
+
+Same goes for the words that you might permute in argv[2]. In main.c, change the define to reflect possible max string length:
+
+```
+#define BUFFER_SIZE 32
+```
+
+2. This particular input dictionary has some annoying control characters at the end of each word in addition to a newline character, which is why I do the following in main.c:47
+
+```
+buffer[len-1] = '\0';
+buffer[len-2] = '\0';
+```
+
+Keep this in mind when feeding it dictionary files. You may need to adjust where null characters are set in order for everything to work smoothly.
+
 <hr/>
 
 # To build
