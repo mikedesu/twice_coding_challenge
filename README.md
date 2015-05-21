@@ -18,7 +18,7 @@ I ran into a number of issues in just reading in the word list (efficient file i
 
 There are two issues that I can think of that need to be watched out for:
 
-1. If your dictionary has words with more than 32 characters, you should change the define in avl_node.h:
+- If your dictionary has words with more than 32 characters, you should change the define in avl_node.h:
 
 ```
 #define MAX_STRING_LENGTH 32
@@ -30,7 +30,7 @@ Same goes for the words that you might permute in argv[2]. In main.c, change the
 #define BUFFER_SIZE 32
 ```
 
-2. This particular input dictionary has some annoying control characters at the end of each word in addition to a newline character, which is why I do the following in main.c:47
+- This particular input dictionary has some annoying control characters at the end of each word in addition to a newline character, which is why I do the following in main.c:47
 
 ```
 buffer[len-1] = '\0';
