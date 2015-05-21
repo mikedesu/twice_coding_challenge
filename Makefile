@@ -1,0 +1,23 @@
+CC=clang
+WARNINGS_ALL_FLAG=-Wall
+OBJ_FILE_FLAG=-c
+DEBUG_SYMBOLS_FLAG=-g
+OUTPUT_FLAG=-o
+RM=rm -rf
+EXECUTABLE=main
+OBJ_FILES=main.o avl_node.o
+
+all:	$(OBJ_FILES) $(EXECUTABLE)
+
+main:	
+	$(CC) $(WARNINGS_ALL_FLAG) $(OBJ_FILES) $(OUTPUT_FLAG) $(EXECUTABLE)
+
+main.o:
+	$(CC) $(WARNINGS_ALL_FLAG) $(DEBUG_SYMBOLS_FLAG) $(OBJ_FILE_FLAG) main.c
+
+avl_node.o:
+	$(CC) $(WARNINGS_ALL_FLAG) $(DEBUG_SYMBOLS_FLAG) $(OBJ_FILE_FLAG) avl_node.c
+
+clean:
+	$(RM) $(EXECUTABLE) $(OBJ_FILES)
+
